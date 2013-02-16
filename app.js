@@ -5,7 +5,7 @@ x show exact name for each of the indicators on the top right. E.g. Estimated ho
 x add option to copy card id into clipboard
 x make the plugin use the (x/y) synthax, like the old plugin
 x finish tests
-- trim empty spaces when calculating values from titles
+x trim empty spaces when calculating values from titles
 - move the Copy To Clipboard button to the bottom of the list, otherwise buttons jump
 - add time left for development: estimated time - spent time
 - add help button
@@ -21,7 +21,7 @@ BUG:
 
 */
 
-var mainUpdate;
+var mainUpdateInterval;
 var mainUpdateStep = 2000;
 var ESTIMATION = 'estimation';
 var SPENT = 'spent';
@@ -38,7 +38,7 @@ $(function(){
 		//
 		// Main Loop
 		//
-		mainUpdate = setInterval(update, mainUpdateStep);	
+		mainUpdateInterval = setInterval(update, mainUpdateStep);	
 });
 
 
@@ -149,7 +149,7 @@ function update() {
 }
 
 function stopUpdate() {
-	window.clearInterval(mainUpdateStep);
+	window.clearInterval(mainUpdateInterval);
 }
 
 function stringStartsWith(string, input) {
@@ -321,7 +321,7 @@ var CopyToClipboardButton = {
 		var copyButton = copyButtonContainer.children('a.agile_close_button');	
 		if (copyButton.size() == 0) {
 			copyButton = CopyToClipboardButton.create(cardId);
-			copyButtonContainer.prepend(copyButton);
+			copyButtonContainer.append(copyButton);
 		} else {
 			copyButton = copyButton.eq(0);
 		}
@@ -363,7 +363,7 @@ var LabelsManager = {
 }
 
 var Language = {
-	copy_to_clipboard : "Copy to clipboard"	
+	copy_to_clipboard : "Show card ID"	
 }
 
 /*
