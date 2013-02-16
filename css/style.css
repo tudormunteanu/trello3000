@@ -19,6 +19,10 @@ div.agile_spent_box {
 	margin-right: 10px;
 }
 
+div.agile_remaining_box {
+	background-color: green;
+}
+
 div.agile_total_box {
 	float: right;
 	margin-right: 10px;

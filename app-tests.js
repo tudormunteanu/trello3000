@@ -1,6 +1,5 @@
 var TEST_DELAY = 5000;
 
-
 $(function(){
 		var testScaffold = '<div id="qunit-container"><h1 id="qunit-header">Trello Scrum Test Suite</h1> <h2 id="qunit-banner"></h2> <div id="qunit-testrunner-toolbar"></div>  <ol id="qunit-tests"></ol> <div id="qunit-fixture"></div></div>';
 		$('body').append(testScaffold);

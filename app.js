@@ -6,7 +6,7 @@ x add option to copy card id into clipboard
 x make the plugin use the (x/y) synthax, like the old plugin
 x finish tests
 x trim empty spaces when calculating values from titles
-- move the Copy To Clipboard button to the bottom of the list, otherwise buttons jump
+x move the Copy To Clipboard button to the bottom of the list, otherwise buttons jump
 - add time left for development: estimated time - spent time
 - add help button
 - find a cool color scheme (and maybe one alternative)
@@ -25,8 +25,10 @@ var mainUpdateInterval;
 var mainUpdateStep = 2000;
 var ESTIMATION = 'estimation';
 var SPENT = 'spent';
+var REMAINING = 'remaining';
 var spentTotal;
 var estimationTotal;
+var remainingTotal;
 
 $(function(){
 		//
@@ -34,6 +36,7 @@ $(function(){
 		//
 		spentTotal = InfoBoxFactory.makeTotalInfoBox(SPENT);
 		estimationTotal = InfoBoxFactory.makeTotalInfoBox(ESTIMATION);
+		remainingTotal = InfoBoxFactory.makeTotalInfoBox(REMAINING);
 
 		//
 		// Main Loop
@@ -143,6 +146,8 @@ function update() {
 		});
 	estimationTotal.html(Card.estimationLabelText(globalTotalEstimation));
 	spentTotal.html(Card.spentLabelText(globalTotalSpent));
+	var difference = globalTotalEstimation - globalTotalSpent;
+	remainingTotal.html(Card.remainingLabelText(difference));
 
 	CopyToClipboardButton.update();
 
@@ -168,100 +173,17 @@ var List = {
 	}
 }
 
-
-var Card = {
-	//
-	// Separator used to split the custom values 
-	// from the rest of the title
-	//
-	mainSeparator : ")",
-	secondarySeparator: "/",
-	startSeparator: "(",
-	//
-	// Parses the title to obtain the estimated number of units
-	// E.g. "2--This is a string" will output the number 2.
-	//
-	estimationFromTitle : function(title) {
-		var trimmedTitle = $.trim(title);
-		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
-			return 0;
-		} 
-		trimmedTitle = trimmedTitle.substring(1, trimmedTitle.length);
-		var splits = trimmedTitle.split(this.mainSeparator);
-		if (splits.length == 2) {
-			var splits2 = splits[0].split(this.secondarySeparator);
-			if (splits2.length == 2) {
-				var value = parseInt(splits2[1]);
-				if (isNaN(value)) {
-					return 0;
-				}
-				return value;
-			} else {
-				var value = parseInt(splits[0]);
-				if (isNaN(value)) {
-					return 0;
-				}
-				return value; 
-			}
-		}
-		return 0;
-	},
-	spentFromTitle : function(title) {
-		var trimmedTitle = $.trim(title);
-		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
-			return 0;
-		} 
-		trimmedTitle = trimmedTitle.substring(1, trimmedTitle.length);
-		var splits = trimmedTitle.split(this.mainSeparator);
-		if (splits.length == 2) {
-			var splits2 = splits[0].split(this.secondarySeparator);
-			if (splits2.length == 2) {
-				var value = parseInt(splits2[0]);
-				if (isNaN(value)) {
-					return 0;
-				}
-				return value;
-			}
-		}
-		return 0;
-	},
-	//
-	// Return the clean version of the title, w/o the
-	// prefixes.
-	// E.g. For "(2) This task rocks" this will give "This task rocks"
-	// E.g. For "(1/2) This task rocks" this will give "This task rocks"
-	//
-	cleanTitle : function(title) {
-		var trimmedTitle = $.trim(title);
-		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
-			return title;
-		} 
-		var splits = trimmedTitle.split(this.mainSeparator);
-		if (splits.length == 2) {
-			return splits[1];
-		}
-		return trimmedTitle;
-	},
-	estimationLabelText : function(estimationNumber) {
-		return "E: " + String(estimationNumber);
-	},
-	spentLabelText : function(spentNumber) {
-		return "S: " + String(spentNumber);
-	},
-	randomNumber: function () {
-		return Math.floor(Math.random()*11);
-	},
-	titleTag: function (card) {
-		return $(card).children('a.list-card-title').eq(0);
-	}
-}
-
 var InfoBoxManager = {
+	//
+	// TODO: Fix this weirdness. The elements are created from outside, 
+	// but used inside here. Weird dependency.
+	//
 	update: function(){
 		var boardHeader = $('div#board-header');
-		var boardHeaderChildren = boardHeader.children();
+		//var boardHeaderChildren = boardHeader.children();
 		boardHeader.append(estimationTotal);
 		boardHeader.append(spentTotal);
+		boardHeader.append(remainingTotal);
 	}
 }
 
@@ -280,6 +202,8 @@ var InfoBoxFactory = {
 			return box.addClass('agile_estimation_box').html('E: 0');
 		} else if (type == SPENT) {
 			return box.addClass('agile_spent_box').html('S: 0');
+		} else if (type == REMAINING) {
+			return box.addClass('agile_remaining_box').html('R: 0');
 		}
 	}
 }
@@ -326,44 +250,6 @@ var CopyToClipboardButton = {
 			copyButton = copyButton.eq(0);
 		}
 	}
-}
-
-var LabelsManager = {
-	update: function(card) {
-		card
-		.removeClass('agile_green_card')
-		.removeClass('agile_yellow_card')
-		.removeClass('agile_orange_card')
-		.removeClass('agile_red_card')
-		.removeClass('agile_purple_card')
-		.removeClass('agile_blue_card');
-		var firstLabel = card.find('div.card-labels').children(':first');
-		if (firstLabel.size()) {
-			var classString = firstLabel.attr('class');
-			if (classString.search('green') != -1) {
-				card.addClass('agile_green_card');
-
-			} else if (classString.search('yellow') != -1) {
-				card.addClass('agile_yellow_card');
-
-			} else if (classString.search('orange') != -1) {
-				card.addClass('agile_orange_card');
-
-			} else if (classString.search('red') != -1) {
-				card.addClass('agile_red_card');
-
-			} else if (classString.search('purple') != -1) {
-				card.addClass('agile_purple_card');
-
-			} else if (classString.search('blue') != -1) {
-				card.addClass('agile_blue_card');
-			}
-		}
-	}
-}
-
-var Language = {
-	copy_to_clipboard : "Show card ID"	
 }
 
 /*
