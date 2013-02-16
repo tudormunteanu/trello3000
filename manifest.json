@@ -1,0 +1,19 @@
+{
+	"name" : "My First Extension",
+	"version" : "0.1",
+	"manifest_version" : 2,
+	"description" : "The first extension that I made.",
+	"icons": {
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"content_scripts" : [
+	{
+		"matches" : ["https://trello.com/*"],
+		 "js" : ["libs/jquery.min.js", "libs/qunit.js", "app.js"],
+		 "css" : ["css/style.css", "css/qunit.css"]
+	 }
+	],
+	"permissions": ["tabs", "http://*/*","https://*/*"]
+}
