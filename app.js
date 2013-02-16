@@ -4,12 +4,15 @@ v 0.1
 x show exact name for each of the indicators on the top right. E.g. Estimated hours: xx, Spent hours: YY
 x add option to copy card id into clipboard
 x make the plugin use the (x/y) synthax, like the old plugin
-- finish tests
-- when card is open, add buttons for estimates under the title input field
+x finish tests
+- trim empty spaces when calculating values from titles
+- move the Copy To Clipboard button to the bottom of the list, otherwise buttons jump
 - add time left for development: estimated time - spent time
+- add help button
+- find a cool color scheme (and maybe one alternative)
+- when card is open, add buttons for estimates under the title input field
 - think of a way to calculate cards that are done (maybe just archive it)
 - priorities: can be a number from 0 to 10. 0 highes priority, 10 lowest >> Is this really needed?
-- move the Copy To Clipboard button to the bottom of the list, otherwise buttons jump
 
 v 0.2
 - generate a list of all the open tasks, organized by lists, cards with URLs and estimates
@@ -179,11 +182,12 @@ var Card = {
 	// E.g. "2--This is a string" will output the number 2.
 	//
 	estimationFromTitle : function(title) {
-		if (!stringStartsWith(title, this.startSeparator)){
+		var trimmedTitle = $.trim(title);
+		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
 			return 0;
 		} 
-		title = title.substring(1, title.length);
-		var splits = title.split(this.mainSeparator);
+		trimmedTitle = trimmedTitle.substring(1, trimmedTitle.length);
+		var splits = trimmedTitle.split(this.mainSeparator);
 		if (splits.length == 2) {
 			var splits2 = splits[0].split(this.secondarySeparator);
 			if (splits2.length == 2) {
@@ -203,11 +207,12 @@ var Card = {
 		return 0;
 	},
 	spentFromTitle : function(title) {
-		if (!stringStartsWith(title, this.startSeparator)){
+		var trimmedTitle = $.trim(title);
+		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
 			return 0;
 		} 
-		title = title.substring(1, title.length);
-		var splits = title.split(this.mainSeparator);
+		trimmedTitle = trimmedTitle.substring(1, trimmedTitle.length);
+		var splits = trimmedTitle.split(this.mainSeparator);
 		if (splits.length == 2) {
 			var splits2 = splits[0].split(this.secondarySeparator);
 			if (splits2.length == 2) {
@@ -227,14 +232,15 @@ var Card = {
 	// E.g. For "(1/2) This task rocks" this will give "This task rocks"
 	//
 	cleanTitle : function(title) {
-		if (!stringStartsWith(title, this.startSeparator)){
+		var trimmedTitle = $.trim(title);
+		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
 			return title;
 		} 
-		var splits = title.split(this.mainSeparator);
+		var splits = trimmedTitle.split(this.mainSeparator);
 		if (splits.length == 2) {
 			return splits[1];
 		}
-		return title;
+		return trimmedTitle;
 	},
 	estimationLabelText : function(estimationNumber) {
 		return "E: " + String(estimationNumber);

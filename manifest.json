@@ -11,7 +11,7 @@
 	"content_scripts" : [
 	{
 		"matches" : ["https://trello.com/*"],
-		 "js" : ["libs/jquery.min.js", "libs/qunit.js", "app.js"],
+		 "js" : ["libs/jquery.min.js", "libs/qunit.js", "app.js", "app-tests.js"],
 		 "css" : ["css/style.css", "css/qunit.css"]
 	 }
 	],
