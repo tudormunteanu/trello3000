@@ -7,7 +7,7 @@ x make the plugin use the (x/y) synthax, like the old plugin
 x finish tests
 x trim empty spaces when calculating values from titles
 x move the Copy To Clipboard button to the bottom of the list, otherwise buttons jump
-- add time left for development: estimated time - spent time
+x add time left for development: estimated time - spent time
 - add help button
 - find a cool color scheme (and maybe one alternative)
 - when card is open, add buttons for estimates under the title input field
@@ -37,6 +37,9 @@ $(function(){
 		spentTotal = InfoBoxFactory.makeTotalInfoBox(SPENT);
 		estimationTotal = InfoBoxFactory.makeTotalInfoBox(ESTIMATION);
 		remainingTotal = InfoBoxFactory.makeTotalInfoBox(REMAINING);
+
+
+		HelpButton.display();
 
 		//
 		// Main Loop
@@ -150,7 +153,6 @@ function update() {
 	remainingTotal.html(Card.remainingLabelText(difference));
 
 	CopyToClipboardButton.update();
-
 }
 
 function stopUpdate() {
@@ -230,27 +232,6 @@ var BadgeFactory = {
 	}
 }
 
-var CopyToClipboardButton = {
-	create : function(text) {
-		var b = $("<a href=\"#\">"+ Language.copy_to_clipboard +"</a>").addClass('button-link').addClass('agile_close_button');
-		b.click(function(){
-				window.prompt ("Card ID", text);
-			});
-		return b;
-	},
-	update: function() {
-		var windowOverlay = $('div.window-overlay div.window-sidebar');
-		var cardId = windowOverlay.find('p.quiet.bottom span span').html();
-		var copyButtonContainer = windowOverlay.find('div.window-module.other-actions div:first');
-		var copyButton = copyButtonContainer.children('a.agile_close_button');	
-		if (copyButton.size() == 0) {
-			copyButton = CopyToClipboardButton.create(cardId);
-			copyButtonContainer.append(copyButton);
-		} else {
-			copyButton = copyButton.eq(0);
-		}
-	}
-}
 
 /*
  * Abandoned idea because

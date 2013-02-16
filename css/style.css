@@ -53,6 +53,10 @@ a.agile_close_button {
 	text-indent: 0 !important;
 }
 
+a.agile_help_button {
+	padding: 0 8px !important;
+}
+
 
 /*
  * Colors
