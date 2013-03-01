@@ -15,7 +15,6 @@ function makeHeaderToggle() {
 }
 
 function runTests() {
-	console.log('run test');
 	makeHeaderToggle();
 
 	test("Number of lists", function() {
@@ -118,6 +117,7 @@ function runTests() {
 				});
 			ok(totalSpent == targetTotalSpent, "Error reading total spent units.");
 		});
+
 	test("Trim card title", function(){
 			var targetEstimated = 3;
 			var title = "(3) Funky title";
@@ -137,5 +137,16 @@ function runTests() {
 			var spent = Card.spentFromTitle(title);
 			var targetSpent = 2;
 			ok(spent == targetSpent, "Error calculating spent units.");
+		});
+
+	test("Clean title for double paranthesis", function() {
+			var title = '(1) Spielphasen/Spielstati: Bezeichnungen wie "(n. V)"';
+			var estimate = Card.estimationFromTitle(title);
+			var targetEstimate = 1;
+			ok(estimate == targetEstimate, "Error reading spent time");
+		});
+
+	test("Help Button", function() {
+			ok($('.' + HelpButton.class).size() == 1, 'Error adding the Help Button');
 		});
 }

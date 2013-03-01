@@ -15,9 +15,10 @@ x add time left for development: estimated time - spent time
 - priorities: can be a number from 0 to 10. 0 highes priority, 10 lowest >> Is this really needed?
 
 v 0.2
+- option to calculate estimates only for visible cards (after filter)
 - generate a list of all the open tasks, organized by lists, cards with URLs and estimates
-BUG:
-- 
+
+BUGS:
 
 */
 

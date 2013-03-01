@@ -22,12 +22,13 @@ var CopyToClipboardButton = {
 
 
 var HelpButton = {
+	class: 'agile_help_button',
 	create: function() {
-		var b = $('<a href="#"></a>').addClass('header-btn header-notifications agile_help_button');
+		var b = $('<a href="#"></a>').addClass('header-btn header-notifications ' + this.class);
 		var span = $('<span></span>').addClass('header-btn-text').html(Language.help_text);
 		b.append(span);
 		b.click(function(){
-				console.log('help clicked');
+				Help.display();
 			});
 		return b;
 	},

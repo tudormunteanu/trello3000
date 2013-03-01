@@ -17,7 +17,7 @@ var Card = {
 		} 
 		trimmedTitle = trimmedTitle.substring(1, trimmedTitle.length);
 		var splits = trimmedTitle.split(this.mainSeparator);
-		if (splits.length == 2) {
+		if (splits.length >= 2) {
 			var splits2 = splits[0].split(this.secondarySeparator);
 			if (splits2.length == 2) {
 				var value = parseInt(splits2[1]);
