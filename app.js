@@ -1,4 +1,6 @@
 /*
+ Trello 3000
+
  TODO:
 v 0.1
 x show exact name for each of the indicators on the top right. E.g. Estimated hours: xx, Spent hours: YY
@@ -8,15 +10,15 @@ x finish tests
 x trim empty spaces when calculating values from titles
 x move the Copy To Clipboard button to the bottom of the list, otherwise buttons jump
 x add time left for development: estimated time - spent time
-- add help button
-- find a cool color scheme (and maybe one alternative)
-- when card is open, add buttons for estimates under the title input field
-- think of a way to calculate cards that are done (maybe just archive it)
-- priorities: can be a number from 0 to 10. 0 highes priority, 10 lowest >> Is this really needed?
+x add help instructions
 
 v 0.2
 - option to calculate estimates only for visible cards (after filter)
 - generate a list of all the open tasks, organized by lists, cards with URLs and estimates
+- find a cool color scheme (and maybe one alternative)
+- when card is open, add buttons for estimates under the title input field
+- think of a way to calculate cards that are done (maybe just archive it)
+- priorities: can be a number from 0 to 10. 0 highes priority, 10 lowest >> Is this really needed?
 
 BUGS:
 
@@ -39,8 +41,9 @@ $(function(){
 		estimationTotal = InfoBoxFactory.makeTotalInfoBox(ESTIMATION);
 		remainingTotal = InfoBoxFactory.makeTotalInfoBox(REMAINING);
 
-
-		HelpButton.display();
+		setTimeout(function() {
+				HelpButton.display();
+			}, 2000);
 
 		//
 		// Main Loop

@@ -1,12 +1,13 @@
-var TEST_DELAY = 5000;
 
 $(function(){
-		var testScaffold = '<div id="qunit-container"><h1 id="qunit-header">Trello Scrum Test Suite</h1> <h2 id="qunit-banner"></h2> <div id="qunit-testrunner-toolbar"></div>  <ol id="qunit-tests"></ol> <div id="qunit-fixture"></div></div>';
-		$('body').append(testScaffold);
+
+		var TEST_DELAY = 3000;
 		setTimeout(function(){
+				var testScaffold = $('<div id="qunit-container"><h1 id="qunit-header">Trello 3000 Test Suite</h1> <div id="qunit-testresult"></div><h2 id="qunit-banner"></h2> <ol id="qunit-tests"></ol> <div id="qunit-fixture"></div></div>');
+				$('body').append(testScaffold);
 				runTests();
 			}, TEST_DELAY);
-	});
+});
 
 function makeHeaderToggle() {
 	$('h1#qunit-header').click(function(){

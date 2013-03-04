@@ -107,13 +107,28 @@ div#qunit-container {
  */
 div#agile_help_container {
 	background: black;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 	color: white;
 	left: 0;
-	padding: 12px;
+	padding: 24px;
+	padding-bottom:12px;
+	padding-top:12px;
 	position: absolute;
-	top: 10em;
+	top: 9em;
 	width: 40em;
 	z-index: 1001;
+}
+
+div#agile_help_container h1 {
+	margin-top: 10px;
+}
+
+span.agile_help_close {
+	float: right;
+	font-size: 10px;
+}
+
+div#agile_help_container img {
+	border-radius: 5px;
 }
