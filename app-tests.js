@@ -1,7 +1,7 @@
-
+QUnit.config.autostart = false;
 $(function(){
 
-		var TEST_DELAY = 3000;
+		var TEST_DELAY = 4000;
 		setTimeout(function(){
 				var testScaffold = $('<div id="qunit-container"><h1 id="qunit-header">Trello 3000 Test Suite</h1> <div id="qunit-testresult"></div><h2 id="qunit-banner"></h2> <ol id="qunit-tests"></ol> <div id="qunit-fixture"></div></div>');
 				$('body').append(testScaffold);
@@ -17,6 +17,7 @@ function makeHeaderToggle() {
 
 function runTests() {
 	makeHeaderToggle();
+	QUnit.start();
 
 	test("Number of lists", function() {
 			var numberOfLists = List.all().size();

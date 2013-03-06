@@ -20,6 +20,9 @@ v 0.2
 - think of a way to calculate cards that are done (maybe just archive it)
 - priorities: can be a number from 0 to 10. 0 highes priority, 10 lowest >> Is this really needed?
 
+v 0.3.
+- import list likes this (only with - in from of each line) into Trello board as independent cards
+
 BUGS:
 
 */
@@ -41,9 +44,6 @@ $(function(){
 		estimationTotal = InfoBoxFactory.makeTotalInfoBox(ESTIMATION);
 		remainingTotal = InfoBoxFactory.makeTotalInfoBox(REMAINING);
 
-		setTimeout(function() {
-				HelpButton.display();
-			}, 2000);
 
 		//
 		// Main Loop
@@ -54,6 +54,8 @@ $(function(){
 
 function update() {
 	console.log('update');
+
+	HelpButton.display();
 
 	InfoBoxManager.update();
 

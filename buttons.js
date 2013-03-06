@@ -34,6 +34,8 @@ var HelpButton = {
 	},
 	display: function() {
 		var header = $('div#header div.header-user');
-		header.prepend(this.create());
+		if (header.find('.' + this.class).size() == 0) {
+			header.prepend(this.create());
+		}
 	}
 }	
