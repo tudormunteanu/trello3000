@@ -1,4 +1,4 @@
-Trello 3000
+**Trello 3000**
 ===
 
 What?
@@ -21,6 +21,7 @@ How?
 ---
 
 **Adding estimate units**
+
 Estimate units represent how many units resources (hours, days, etc.) will be 
 needed to solve a card. Add this value in the title of the card, between paranthesis.
 
