@@ -1,6 +1,11 @@
 **Trello 3000**
 ===
 
+![Display Sample](https://dl.dropbox.com/u/1618599/trello3000/big_screen.png)
+
+Version 0.1
+---
+
 What?
 ---
 Trello 3000 contains a few enhancements on top of the already great Trello. 
@@ -25,9 +30,31 @@ How?
 Estimate units represent how many units resources (hours, days, etc.) will be 
 needed to solve a card. Add this value in the title of the card, between paranthesis.
 
-![Sample image](https://dl.dropbox.com/u/1618599/trello3000/s1_round.png)
+![Adding estimate units sample](https://dl.dropbox.com/u/1618599/trello3000/s1_round.png)
 
 **Adding spent units***
+
+Spent units represent how many resource units were actually spent to solve this card.
+
+![Adding spent units sample](https://dl.dropbox.com/u/1618599/trello3000/s2_round.png)
+
+**Legend**
+
+"S:" = Spent units
+
+"E:" = Estimated units
+
+"R:" = Remaining units untill all cards are done
+
+![Display Sample](https://dl.dropbox.com/u/1618599/trello3000/s3_round.png)
+
+![Display Sample](https://dl.dropbox.com/u/1618599/trello3000/s4_round.png)
+
+**Help**
+
+On the top right, there is a "Trello 3000 Help" button. Click that for
+quick infos.
+
 
 Notes
 ---
