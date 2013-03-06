@@ -1,6 +1,8 @@
 **Trello 3000**
 ===
 
+[Link to Chrome Web Store]
+
 ![Display Sample](https://dl.dropbox.com/u/1618599/trello3000/big_screen.png)
 
 Version 0.1
@@ -8,7 +10,7 @@ Version 0.1
 
 What?
 ---
-Trello 3000 contains a few enhancements on top of the already great Trello. 
+Trello 3000 is a Chrome Extension that contains a few enhancements on top of the already great Trello. 
 If Trello is a foreign word to you, please take a look over [here](http://trello.com/).
 Essentially, it's a very flexibe organising tool built by the pros from [FogCreek](http://www.fogcreek.com/).
 
@@ -59,6 +61,11 @@ quick infos.
 Notes
 ---
 
-
-
-
++ Similar Chrome extensions
+[Points for Trello](https://chrome.google.com/webstore/detail/points-for-trello/mkcpchladphoadhaclmnlphhijboljjk?hl=en-US&utm_source=chrome-ntp-launcher)
+[Scrum for Trello](https://chrome.google.com/webstore/detail/scrum-for-trello/jdbcdblgjdpmfninkoogcfpnkjmndgje?hl=en-US&utm_source=chrome-ntp-launcher) - this was the spark that made me think about building Trello 3000
++ Tests
+Because Chrome Extensions seem a bit of "reverse engineering", I've decided to write a few basic QUnit tests, 
+to easily detect if Trello's underlaying HTML structure changes.
+To run the tests, clone this repository, add "app-tests.js" in the manifest.json under loaded js failes and load this extension in Chrome while being in developer mode.
++ Colors
