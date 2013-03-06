@@ -12,7 +12,7 @@ var Help = {
 		var container = $('<div id="agile_help_container"></div>');
 		this.para('<span class="agile_help_close">(close)</span>');
 		this.para('<h1>Trello 3000 Help</h1>');
-		this.para('<h3>Adding estimates units</h3>');
+		this.para('<h3>Adding estimate units</h3>');
 		this.para('Estimate units represent how many units resources (hours, days, etc.) will be needed to solve a card. Add this value in the title of the card, between paranthesis.');
 		this.para('<img src="https://dl.dropbox.com/u/1618599/trello3000/s1.png"/>');
 		this.para('<h3>Adding spent units</h3>');
