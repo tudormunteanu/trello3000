@@ -74,3 +74,12 @@ to easily detect if Trello's underlaying HTML structure changes.
 To run the tests, clone this repository, add "app-tests.js" in the manifest.json under loaded js failes and load this extension in Chrome while being in developer mode.
 
 + Colors
+
+Esthetics are very important to me and for that reason the label colors have been
+extracted to a separate colors.css for future extensions. Suggestions and contributions are
+welcomed! :) I'm not really happy with the current color scheme, so improvements will come soon.
+
++ Acknowledgements
+
+I am in no way associated with Trello or FogCreek. The name of
+this extension is simply an homage to Trello and the people behind it.
