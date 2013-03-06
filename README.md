@@ -62,10 +62,15 @@ Notes
 ---
 
 + Similar Chrome extensions
+
 [Points for Trello](https://chrome.google.com/webstore/detail/points-for-trello/mkcpchladphoadhaclmnlphhijboljjk?hl=en-US&utm_source=chrome-ntp-launcher)
+
 [Scrum for Trello](https://chrome.google.com/webstore/detail/scrum-for-trello/jdbcdblgjdpmfninkoogcfpnkjmndgje?hl=en-US&utm_source=chrome-ntp-launcher) - this was the spark that made me think about building Trello 3000
+
 + Tests
+
 Because Chrome Extensions seem a bit of "reverse engineering", I've decided to write a few basic QUnit tests, 
 to easily detect if Trello's underlaying HTML structure changes.
 To run the tests, clone this repository, add "app-tests.js" in the manifest.json under loaded js failes and load this extension in Chrome while being in developer mode.
+
 + Colors
