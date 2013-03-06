@@ -32,7 +32,7 @@ needed to solve a card. Add this value in the title of the card, between paranth
 
 ![Adding estimate units sample](https://dl.dropbox.com/u/1618599/trello3000/s1_round.png)
 
-**Adding spent units***
+**Adding spent units**
 
 Spent units represent how many resource units were actually spent to solve this card.
 
