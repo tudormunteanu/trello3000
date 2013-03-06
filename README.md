@@ -25,10 +25,13 @@ How?
 Estimate units represent how many units resources (hours, days, etc.) will be 
 needed to solve a card. Add this value in the title of the card, between paranthesis.
 
+![Sample image](https://dl.dropbox.com/u/1618599/trello3000/s1_round.png)
+
+**Adding spent units***
+
 Notes
 ---
 
 
 
 
-![Sample image](https://dl.dropbox.com/u/1618599/trello3000/s2.png)
