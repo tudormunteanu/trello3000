@@ -1,22 +1,19 @@
 **Trello 3000**
 ===
 
-Installation
----
-
-Open the following link in Chrome: [Trello 3000 in Chrome Web Store](http://bit.ly/12DIpSy)
-and follow the instructions on screen.
-
 ![Display Sample](https://dl.dropbox.com/u/1618599/trello3000/big_screen.png)
-
-Version 0.1
----
 
 What?
 ---
 Trello 3000 is a open-source Chrome Extension that contains a few enhancements on top of the already great Trello. 
 If Trello is a foreign word to you, please take a look over [here](http://trello.com/).
 Essentially, it's a very flexibe organising tool built by the pros from [FogCreek](http://www.fogcreek.com/).
+
+Installation?
+---
+
+Open the following link in Chrome: [Trello 3000 in Chrome Web Store](http://bit.ly/12DIpSy)
+and follow the instructions on screen.
 
 Why?
 ---
@@ -93,6 +90,10 @@ this extension is simply an homage to Trello and the people behind it.
 For keeping up with the Trello spirit, all the development 
 of this Chrome Extension can be followed on [its public Board](https://trello.com/b/6n1pR0SI). 
 Anyone is invited to suggest, contribute and share.
+
+Current Version
+---
+0.1
 
 ---
 Follow me [@tudorizer](http://twitter.com/tudorizer) for more updates.
