@@ -1,7 +1,11 @@
 **Trello 3000**
 ===
 
-[Link to Chrome Web Store](http://bit.ly/12DIpSy)
+Installation
+---
+
+Open the following link in Chrome: [Trello 3000 in Chrome Web Store](http://bit.ly/12DIpSy)
+and follow the instructions on screen.
 
 ![Display Sample](https://dl.dropbox.com/u/1618599/trello3000/big_screen.png)
 
