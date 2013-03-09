@@ -88,5 +88,12 @@ welcomed! :) I'm not really happy with the current color scheme, so improvements
 I am in no way associated with Trello or FogCreek. The name of
 this extension is simply an homage to Trello and the people behind it.
 
++ Development
+
+For keeping up with the Trello spirit, all the development 
+of this Chrome Extension can be followed on [its public Board](https://trello.com/b/6n1pR0SI). 
+Anyone is invited to suggest, contribute and share.
+
 ---
 Follow me [@tudorizer](http://twitter.com/tudorizer) for more updates.
+
