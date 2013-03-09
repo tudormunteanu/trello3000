@@ -10,13 +10,13 @@ Version 0.1
 
 What?
 ---
-Trello 3000 is a Chrome Extension that contains a few enhancements on top of the already great Trello. 
+Trello 3000 is a open-source Chrome Extension that contains a few enhancements on top of the already great Trello. 
 If Trello is a foreign word to you, please take a look over [here](http://trello.com/).
 Essentially, it's a very flexibe organising tool built by the pros from [FogCreek](http://www.fogcreek.com/).
 
 Why?
 ---
-I have buil Trello 3000 to fill a few gaps which Trello left (probably intentionally) open like:
+I have built Trello 3000 to fill a few gaps which Trello left (probably intentionally) open like:
 card and list specific time estimates, spent time and stronger highlighting of cards. 
 As I notice more needs and as time permits me, more features will come.
 
@@ -83,3 +83,6 @@ welcomed! :) I'm not really happy with the current color scheme, so improvements
 
 I am in no way associated with Trello or FogCreek. The name of
 this extension is simply an homage to Trello and the people behind it.
+
+---
+Follow me [@tudorizer](http://twitter.com/tudorizer) for more updates.

@@ -1,0 +1,32 @@
+/*
+ * Colors
+ */
+div.agile_green_card {
+	background: #70ebb7 !important;
+	border: 0 !important;
+}
+
+div.agile_yellow_card {
+	background: #ffff95 !important;
+	border: 0 !important;
+}
+
+div.agile_orange_card {
+	background: #f9bf85 !important;
+	border: 0 !important;
+}
+
+div.agile_red_card {
+	background: #ff7373 !important;
+	border: 0 !important;
+}
+
+div.agile_purple_card {
+	background: #d17ffa !important;
+	border: 0 !important;
+}
+
+div.agile_blue_card {
+	background: #86aeff !important;
+	border: 0 !important;
+}
