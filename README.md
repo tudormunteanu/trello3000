@@ -1,7 +1,7 @@
 **Trello 3000**
 ===
 
-[Link to Chrome Web Store]
+[Link to Chrome Web Store](http://bit.ly/12DIpSy)
 
 ![Display Sample](https://dl.dropbox.com/u/1618599/trello3000/big_screen.png)
 
