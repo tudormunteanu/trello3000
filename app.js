@@ -57,6 +57,7 @@ function update() {
 
 	HelpButton.display();
 
+	CalcOptions.display();
 	InfoBoxManager.update();
 
 	var globalTotalSpent = 0;
@@ -94,6 +95,7 @@ function update() {
 			var totalSpent = 0;
 			cards.each(function(k, card){
 					var originalTitleTag = Card.titleTag(card);
+					var updateTotals = CalcOptions.ignoreFilters || $(card).is(":visible");
 
 					LabelsManager.update($(card));
 
@@ -104,13 +106,13 @@ function update() {
 					tmpTitleTag.children('span').remove();
 					var title = tmpTitleTag.text();
 					var estimation = Card.estimationFromTitle(title);
-					totalEstimation += estimation;
+					totalEstimation += updateTotals ? estimation : 0;
 
 					//
 					// Get the spent scrum units
 					//
 					var spent = Card.spentFromTitle(title);
-					totalSpent += spent;
+					totalSpent += updateTotals ? spent : 0;
 
 					//
 					// Show a title w/o the markup

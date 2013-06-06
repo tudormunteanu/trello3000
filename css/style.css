@@ -29,6 +29,16 @@ div.agile_total_box {
 	margin-top: 5px;
 }
 
+label.agile_ignore_filters_option {
+	float: right;
+	font-weight: normal;
+}
+
+label.agile_ignore_filters_option input {
+	vertical-align: middle;
+	margin: 0 5px 0 0;
+}
+
 .agile_hidden {
 	display: none !important;
 }
