@@ -157,8 +157,9 @@ function update() {
 		});
 	estimationTotal.html(Card.estimationLabelText(globalTotalEstimation));
 	spentTotal.html(Card.spentLabelText(globalTotalSpent));
-	var difference = globalTotalEstimation - globalTotalSpent;
-	remainingTotal.html(Card.remainingLabelText(difference));
+	var difference = (globalTotalEstimation - globalTotalSpent).toFixed(2);
+
+	remainingTotal.html(Card.remainingLabelText(parseFloat(difference)));
 
 	CopyToClipboardButton.update();
 }

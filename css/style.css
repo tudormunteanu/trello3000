@@ -5,9 +5,10 @@ div.agile_box {
 	float: left;
 	font: 15px Helvetica;
 	margin-top: 2px;
-	padding: 1px 0 1px 0;
+	padding: 1px 4px 1px 4px;
 	text-align: center;
-	width: 45px;
+	width: auto;
+
 }
 
 div.agile_estimation_box {
