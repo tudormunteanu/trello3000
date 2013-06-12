@@ -57,12 +57,26 @@ var Card = {
 		}
 		return 0;
 	},
+	hashtagsFromTitle: function(title) {
+		var hashtags = [];
+		var regexp = /#([\w-]+)/g;
+		var result = regexp.exec(title);
+		while (result != null) {
+			hashtags.push(result[1]);
+			result = regexp.exec(title);
+		}
+
+		return hashtags;
+	},
 	//
 	// Return the clean version of the title, w/o the prefixes.
 	// E.g. For "(2) This task rocks" this will give "This task rocks"
 	// E.g. For "(1/2) This task rocks" this will give "This task rocks"
 	//
 	cleanTitle : function(title) {
+		// Strip hashtags
+		title = title.replace(/#[\w-]+/g, "");
+
 		var trimmedTitle = $.trim(title);
 		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
 			return title;

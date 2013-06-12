@@ -115,6 +115,11 @@ function update() {
 					totalSpent += updateTotals ? spent : 0;
 
 					//
+					// Get the card hashtag list
+					//
+					var hashtags = Card.hashtagsFromTitle(title);
+
+					//
 					// Show a title w/o the markup
 					//
 					var originalTitleSiblings = originalTitleTag.siblings('a.agile_clone_title');
@@ -149,6 +154,21 @@ function update() {
 						badges.append(estimateBadge);
 					}
 					estimateBadge.contents().last()[0].textContent = estimation;
+					// Hashtags
+					var hashtagsJq = badges.children('.agile_hashtags');
+					if (hashtagsJq.length == 0) {
+						hashtagsJq = $('<div />').addClass('agile_hashtags');
+						badges.append(hashtagsJq);
+					}
+					hashtagsJq.html('');
+					for (var i = 0; i < hashtags.length; i++) {
+						var color = ColorFactory.generateColor(hashtags[i]);
+						hashtagsJq.append($('<div />')
+								.addClass('badge agile_badge agile_badge_hashtag')
+								.css('background-color', color)
+								.css('border-color', color)
+								.html(hashtags[i]));
+					}
 				});
 			estimationBox.html(Card.estimationLabelText(totalEstimation));
 			spentBox.html(Card.spentLabelText(totalSpent));
@@ -238,6 +258,42 @@ var BadgeFactory = {
 	},
 	spentBadgeClass: function() {
 		return "agile_badge_spent";
+	}
+}
+
+
+var ColorFactory = {
+	colors: {},
+	generateColor: function(text) {
+		if (this.colors[text] == undefined) {
+			var found = false;
+			var color = '#000000';
+
+			do {
+				color = this.newColor();
+				found = false;
+				for (var name in this.colors) {
+					if (this.colors[name] == color) {
+						found = true;
+						break;
+					}
+				}
+			} while (found);
+
+			this.colors[text] = color;
+		}
+
+		return this.colors[text];
+	},
+	newColor: function() {
+		var values = [0, 75, 125, 175];
+		var parts = [this.randomHex(values), this.randomHex(values), this.randomHex(values)];
+		return "#" + parts.join('');
+	},
+	randomHex: function(values) {
+		var index = Math.floor(Math.random() * values.length);
+		var hex = Math.floor(values[index]).toString(16);
+		return (hex.length == 1) ? '0' + hex : hex;
 	}
 }
 
