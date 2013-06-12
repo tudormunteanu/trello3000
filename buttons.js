@@ -38,4 +38,26 @@ var HelpButton = {
 			header.prepend(this.create());
 		}
 	}
-}	
+}
+
+
+var CalcOptions = {
+	class: 'agile_ignore_filters_option',
+	ignoreFilters: false,
+	display: function() {
+		var boardHeader = $('div#board-header');
+		if (boardHeader.children('.' + this.class).size() == 0) {
+			var cb = $('<input />')
+					.prop('type', 'checkbox')
+					.click(this.checkboxOnClick);
+			var label = $('<label />')
+					.append(cb)
+					.append(Language.ignore_filters)
+					.addClass(this.class);
+			boardHeader.append(label);
+		}
+	},
+	checkboxOnClick: function() {
+		CalcOptions.ignoreFilters = $(this).is(':checked');
+	}
+}
