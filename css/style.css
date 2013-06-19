@@ -5,9 +5,10 @@ div.agile_box {
 	float: left;
 	font: 15px Helvetica;
 	margin-top: 2px;
-	padding: 1px 0 1px 0;
+	padding: 1px 4px 1px 4px;
 	text-align: center;
-	width: 45px;
+	width: auto;
+
 }
 
 div.agile_estimation_box {
@@ -27,6 +28,16 @@ div.agile_total_box {
 	float: right;
 	margin-right: 10px;
 	margin-top: 5px;
+}
+
+label.agile_ignore_filters_option {
+	float: right;
+	font-weight: normal;
+}
+
+label.agile_ignore_filters_option input {
+	vertical-align: middle;
+	margin: 0 5px 0 0;
 }
 
 .agile_hidden {

@@ -20,14 +20,14 @@ var Card = {
 		if (splits.length >= 2) {
 			var splits2 = splits[0].split(this.secondarySeparator);
 			if (splits2.length == 2) {
-				var value = parseInt(splits2[1]);
+				var value = parseFloat(splits2[1]);
 				if (isNaN(value)) {
 					return 0;
 				}
 				return value;
 			} else {
-				var value = parseInt(splits[0]);
-				if (isNaN(value)) {
+				var value = parseFloat(splits[0]);
+                if (isNaN(value)) {
 					return 0;
 				}
 				return value; 
@@ -39,13 +39,16 @@ var Card = {
 		var trimmedTitle = $.trim(title);
 		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
 			return 0;
-		} 
+		}
+
 		trimmedTitle = trimmedTitle.substring(1, trimmedTitle.length);
 		var splits = trimmedTitle.split(this.mainSeparator);
 		if (splits.length == 2) {
 			var splits2 = splits[0].split(this.secondarySeparator);
 			if (splits2.length == 2) {
-				var value = parseInt(splits2[0]);
+
+				var value = parseFloat(splits2[0]);
+
 				if (isNaN(value)) {
 					return 0;
 				}
@@ -54,12 +57,26 @@ var Card = {
 		}
 		return 0;
 	},
+	hashtagsFromTitle: function(title) {
+		var hashtags = [];
+		var regexp = /#([\w-]+)/g;
+		var result = regexp.exec(title);
+		while (result != null) {
+			hashtags.push(result[1]);
+			result = regexp.exec(title);
+		}
+
+		return hashtags;
+	},
 	//
 	// Return the clean version of the title, w/o the prefixes.
 	// E.g. For "(2) This task rocks" this will give "This task rocks"
 	// E.g. For "(1/2) This task rocks" this will give "This task rocks"
 	//
 	cleanTitle : function(title) {
+		// Strip hashtags
+		title = title.replace(/#[\w-]+/g, "");
+
 		var trimmedTitle = $.trim(title);
 		if (!stringStartsWith(trimmedTitle, this.startSeparator)){
 			return title;
